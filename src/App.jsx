@@ -18,7 +18,6 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
-
     </>
 
   )
