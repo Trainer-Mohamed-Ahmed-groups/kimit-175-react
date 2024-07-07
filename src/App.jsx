@@ -1,18 +1,26 @@
+import { Route, Routes } from 'react-router-dom'
+import SiteNav from './layout/SiteNav'
 import './sass/App.scss'
-import Btn from './components/Btn';
+import About from './views/About'
+import Home from './views/Home'
+import Products from './views/Products'
+import ErrorPage from './views/ErrorPage'
 
 function App() {
 
   return (
     <>
-      <Btn />
-      <Btn />
-      <div className='parent'>
-        <div className='test'>Hello react</div>
-      </div>
-      <div>Hello react</div>
+      <SiteNav />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/*" element={<ErrorPage />} />
+      </Routes>
+
     </>
-    
+
   )
 }
 
