@@ -18,8 +18,16 @@ export default function User() {
         console.log("User component updated")
     }, [username])
 
+
+    useEffect(() => {
+        return () => {
+            console.log("User component removed")
+        }
+    })
+
     return (
         <div>
+            <h4>User component</h4>
             <input type="text" onChange={handleUsername} />
             <div>{username}</div>
         </div>

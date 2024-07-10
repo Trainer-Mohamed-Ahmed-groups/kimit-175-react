@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Col, Container, Row, Spinner } from "react-bootstrap"
+import { Col, Container, Row, Spinner, Card } from "react-bootstrap"
 
 export default function Products() {
 
@@ -8,7 +8,7 @@ export default function Products() {
     let getProducts = () => {
         fetch('https://fakestoreapi.com/products')
             .then(res => res.json())
-            .then(res => console.log(res))
+            .then(res => setProducts(res))
     }
 
     useEffect(() => {
@@ -19,17 +19,25 @@ export default function Products() {
         <div>
             <h2>Products</h2>
             <Container>
-
                 <Row>
-                    <Col lg={3} sm={12}>test</Col>
-                    <Col lg={3} sm={12}>test</Col>
-                    <Col lg={3} sm={12}>test</Col>
-                    <Col lg={3} sm={12}>test</Col>
+                    {
+                        products.length > 0 ?
+                            products.map(product =>
+                                <Col className="p-2" key={product.id} md={4} sm={12}>
+                                    <Card className="h-100" style={{ width: '18rem' }}>
+                                        <Card.Img variant="top" src={product.image} />
+                                        <Card.Body>
+                                            <Card.Title>{product.title}</Card.Title>
+                                            <Card.Text>{product.description}</Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </Col>
+                            )
+                            :
+                            <Spinner animation="border" variant="primary" />
+                    }
                 </Row>
             </Container>
-            <Spinner animation="border" role="status">
-                <span className="visually-hidden">Loading...</span>
-            </Spinner>
         </div>
     )
 }
