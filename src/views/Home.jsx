@@ -1,13 +1,10 @@
-import Btn from "../components/Btn";
-import Client from "../components/Client";
-
+import { useTranslation } from "react-i18next";
 export default function Home() {
 
+    const { t } = useTranslation();
     return (
         <div>
-            <Client />
-            <hr />
-            <Btn />
+            {t('title')}
         </div>
     )
 }
