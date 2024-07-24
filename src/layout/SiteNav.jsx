@@ -1,18 +1,9 @@
-import { Button } from 'react-bootstrap';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { useTranslation } from 'react-i18next';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 import { NavLink } from "react-router-dom";
 
 
 function SiteNav() {
 
-    let { t, i18n } = useTranslation();
-
-    let handleLanguage = () => {
-        i18n.language === 'en' ? i18n.changeLanguage('ar') : i18n.changeLanguage('en')
-    }
 
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
@@ -22,10 +13,12 @@ function SiteNav() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <NavLink to="/" className="nav-link">Home</NavLink>
-                        <NavLink to="/about" className="nav-link">About</NavLink>
-                        <NavLink to="/products" className="nav-link">Products</NavLink>
+                        <NavLink to="/useState" className="nav-link">Use State</NavLink>
+                        <NavLink to="/useEffect" className="nav-link">Use Effect</NavLink>
+                        <NavLink to="/useRef" className="nav-link">Use Ref</NavLink>
+                        <NavLink to="/useMemo" className="nav-link">Use Memo</NavLink>
+                        <NavLink to="/useCallback" className="nav-link">Use callback</NavLink>
                     </Nav>
-                    <Button variant='primary' onClick={handleLanguage}>{t('setLang')}</Button>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
