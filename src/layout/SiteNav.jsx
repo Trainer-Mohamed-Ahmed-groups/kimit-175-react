@@ -3,8 +3,6 @@ import { NavLink } from "react-router-dom";
 
 
 function SiteNav() {
-
-
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>

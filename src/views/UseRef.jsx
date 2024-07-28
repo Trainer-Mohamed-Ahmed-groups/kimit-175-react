@@ -1,6 +1,9 @@
-import { useRef } from "react"
+import { useContext, useRef } from "react"
+import { CounterContext } from "../context/CounterProvider"
 
 export default function UseRefExplain() {
+
+    let count = useContext(CounterContext)
 
     let inputRef = useRef()
 
@@ -12,6 +15,7 @@ export default function UseRefExplain() {
     return (
         <div>
             <h2>UseRefExplain</h2>
+            <h3>{count.count}</h3>
             <input type="text" ref={inputRef} />
             <button onClick={inputFocus}>Click me</button>
         </div>
