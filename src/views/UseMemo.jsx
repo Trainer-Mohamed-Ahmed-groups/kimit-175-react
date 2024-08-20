@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react"
+import { useSelector } from "react-redux"
 
 export default function UseMemoExplain() {
     const [firstName, setFirstName] = useState("")
@@ -11,10 +12,12 @@ export default function UseMemoExplain() {
         ), [firstName, lastName]
     )
 
+    const count = useSelector(state => state.counter)
+
     return (
         <div>
             <h2>UseMemoExplain</h2>
-
+            {count}
             <hr />
             <input className="me-3" placeholder="enter first name" onChange={e => setFirstName(e.target.value)} />
             <input className="me-3" placeholder="enter last name" onChange={e => setLastName(e.target.value)} />
